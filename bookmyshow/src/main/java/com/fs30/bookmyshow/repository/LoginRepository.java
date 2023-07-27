@@ -23,7 +23,6 @@ public class LoginRepository {
         if (null!= userDetailsList) {
             return "User exist already. Please Login . ";
         } else {
-            query = new Query();
             UserDetails user = mongoTemplate.save(userDetails);
             return "Registration completed!! Login with new credentials.";
         }
