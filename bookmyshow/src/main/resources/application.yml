@@ -1,0 +1,18 @@
+
+app.name: Book My Show
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_CONNECTION_STRING:mongodb://localhost:27017}
+      database: ${MONGODB_DATABASE:bookmyshow}
+
+## Spring actuator by default give two endpoints only to monitor health , to get all the endpoints following
+## configuration is required . By default, all endpoints but shutdown are enabled and only health and info are exposed.
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
