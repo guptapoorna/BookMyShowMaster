@@ -6,7 +6,17 @@ spring:
     mongodb:
       uri: ${MONGO_CONNECTION_STRING:mongodb://localhost:27017}
       database: ${MONGODB_DATABASE:bookmyshow}
-
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "863134531860-c9tan6gshvgvi3huci1m5e19mmad2tb1.apps.googleusercontent.com"
+            client-secret: "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"
+          facebook:
+            client-id: "863134531860-c9tan6gshvgvi3huci1m5e19mmad2tb1.apps.googleusercontent.com"
+            client-secret: "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"
+## facebook id need to update
 ## Spring actuator by default give two endpoints only to monitor health , to get all the endpoints following
 ## configuration is required . By default, all endpoints but shutdown are enabled and only health and info are exposed.
 
@@ -15,4 +25,11 @@ management:
     web:
       exposure:
         include: "*"
+
+
+
+
+#spring:security:oauth2:client:registration:facebook:client-id:
+#spring:security:oauth2:client:registration:facebook:client-
+
 
