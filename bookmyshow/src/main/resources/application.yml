@@ -1,0 +1,71 @@
+
+app.name: Book My Show
+
+server:
+  port : 8080
+
+spring:
+  application:
+    name: MovieDetails
+  data:
+    mongodb:
+      uri: ${MONGO_CONNECTION_STRING:mongodb://localhost:27017}
+      database: ${MONGODB_DATABASE:bookmyshow}
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "863134531860-c9tan6gshvgvi3huci1m5e19mmad2tb1.apps.googleusercontent.com"
+            client-secret: "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"
+          facebook:
+            client-id: "863134531860-c9tan6gshvgvi3huci1m5e19mmad2tb1.apps.googleusercontent.com"
+            client-secret: "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"
+  config:
+    import: "optional:configserver:http://localhost:8080"
+## facebook id need to update
+## Spring actuator by default give two endpoints only to monitor health , to get all the endpoints following
+## configuration is required . By default, all endpoints but shutdown are enabled and only health and info are exposed.
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  shutdown:
+    enabled: "true"
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka : true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+
+## configuring info endpoint
+info:
+  app:
+    name: "Movie Microservices"
+    description: "Book my show Movie details application"
+    version : "1.0.0"
+
+## for gracefully shutdown
+endpoints:
+  shutdown:
+    enabled: true
+
+
+
+
+
+
+
+
+
+#spring:security:oauth2:client:registration:facebook:client-id:
+#spring:security:oauth2:client:registration:facebook:client-
+
+
