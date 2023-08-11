@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+</head>
+<body>
+<div>
+
+    <table style="width:100%">
+        <tr style="background-color:Black;" >
+            <td colspan="3" style="text-align:left; padding-left: 10px;"><p style="color:white"> <span style="color:red">P</span><span>opcorn </span><span style="color:red">T</span>ime</p></td>
+            <td><p style="color:White"> Movies </p></td>
+            <td><p style="color:White"> Signup </p></td>
+            <td><p style="color:White"> Login </p></td>
+
+
+            <td colspan="3"><input type="text" style="color:grey;" value="Movie, Hero, Heroine"/><input type="button" value="Submit"/></td>
+
+        </tr>
+
+
+        <tr style="width:100%;" >
+            <td> <iframe width="660" height="371" src="https://www.youtube.com/embed/3Jk3vquJDGs" title="The Kerala Story Official Trailer | Vipul Amrutlal Shah | Sudipto Sen | Adah Sharma | Aashin A Shah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></td>
+        </tr>
+
+
+        </table>
+    </div>
+<div> welcome <span th:text =  "${name}"> </span> </div>
+
+
+
+</body>
+</html>
