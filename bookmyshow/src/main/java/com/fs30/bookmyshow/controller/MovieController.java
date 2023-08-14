@@ -1,8 +1,7 @@
 package com.fs30.bookmyshow.controller;
 
-import com.fs30.bookmyshow.model.Genre;
-import com.fs30.bookmyshow.model.Language;
-import com.fs30.bookmyshow.model.Movie;
+import com.fs30.bookmyshow.client.BookingsFeignClient;
+import com.fs30.bookmyshow.model.*;
 import com.fs30.bookmyshow.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +25,9 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+
+    @Autowired
+    BookingsFeignClient bookingsFeignClient;
 
     /**
      * @value work with only spring managed beans like , repository, controllers and service classes
@@ -97,10 +99,12 @@ public Movie updateMovie(@RequestBody Movie movie) {
     return movieService.saveMovies(movie);
 }
 
-//@DeleteMapping("/deletemovie/{id}")
-//    public String deleteMovie(@PathVariable String  movie) {
-//        return movieService.deleteMovies(movie);
-//    }
-
+@PostMapping("/booking/tickets")
+    public BookingResponse bookDirectTickets(@RequestBody BookingModel bookingModel){
+        String message = bookingsFeignClient.getBookingDetails(bookingModel);
+        BookingResponse bookingResponse = new BookingResponse();
+        bookingResponse.setSuccessMessage(message);
+        return bookingResponse;
+    }
 
 }
